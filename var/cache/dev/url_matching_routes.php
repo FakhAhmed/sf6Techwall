@@ -16,7 +16,7 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/first' => [[['_route' => 'app_first', '_controller' => 'App\\Controller\\FirstController::index'], null, null, null, false, false, null]],
         '/session' => [[['_route' => 'session', '_controller' => 'App\\Controller\\SessionController::index'], null, null, null, false, false, null]],
-        '/todo' => [[['_route' => 'todo', '_controller' => 'App\\Controller\\TodoController::index'], null, null, null, false, false, null]],
+        '/todo' => [[['_route' => 'todo', '_controller' => 'App\\Controller\\TodoController::index'], null, null, null, true, false, null]],
         '/todo/reset' => [[['_route' => 'todo.reset', '_controller' => 'App\\Controller\\TodoController::resetTodo'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
@@ -38,9 +38,9 @@ return [
                 .')'
                 .'|/sayHello/([^/]++)/([^/]++)(*:196)'
                 .'|/todo/(?'
-                    .'|add/([^/]++)/([^/]++)(*:234)'
-                    .'|update/([^/]++)/([^/]++)(*:266)'
-                    .'|delete/([^/]++)(*:289)'
+                    .'|add(?:/([^/]++)(?:/([^/]++))?)?(*:244)'
+                    .'|update/([^/]++)/([^/]++)(*:276)'
+                    .'|delete/([^/]++)(*:299)'
                 .')'
             .')/?$}sDu',
     ],
@@ -53,9 +53,9 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         196 => [[['_route' => 'say.hello', '_controller' => 'App\\Controller\\FirstController::sayHello'], ['name', 'firstname'], null, null, false, true, null]],
-        234 => [[['_route' => 'todo.add', '_controller' => 'App\\Controller\\TodoController::addTodo'], ['name', 'content'], null, null, false, true, null]],
-        266 => [[['_route' => 'todo.update', '_controller' => 'App\\Controller\\TodoController::updateTodo'], ['name', 'content'], null, null, false, true, null]],
-        289 => [
+        244 => [[['_route' => 'todo.add', 'content' => 'sf6', 'name' => 'samedi', '_controller' => 'App\\Controller\\TodoController::addTodo'], ['name', 'content'], null, null, false, true, null]],
+        276 => [[['_route' => 'todo.update', '_controller' => 'App\\Controller\\TodoController::updateTodo'], ['name', 'content'], null, null, false, true, null]],
+        299 => [
             [['_route' => 'todo.delete', '_controller' => 'App\\Controller\\TodoController::deleteTodo'], ['name'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

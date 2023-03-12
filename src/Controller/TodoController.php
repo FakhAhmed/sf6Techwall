@@ -8,10 +8,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
+#[Route("/todo")]
 class TodoController extends AbstractController
 {
     /**
-     * @Route("/todo", name="todo")
+     * @Route("/", name="todo")
      */
     public function index(Request $request): Response
     {
@@ -30,7 +31,11 @@ class TodoController extends AbstractController
         //Sinon j'ai mon tableau de todo dans ma session je ne fait que l'afficher
         return $this->render('todo/index.html.twig');
     }
-    #[Route('/todo/add/{name}/{content}', name: 'todo.add')]
+    #[Route(
+        '/add/{name}/{content?sf6}',
+        name: 'todo.add',
+        defaults:['name'=>'samedi']
+    )]
     public function addTodo(Request $request, $name, $content): RedirectResponse {
         $session = $request->getSession();
         //vérifier si j'ai mon tableau de todo dans la session
@@ -58,7 +63,7 @@ class TodoController extends AbstractController
         return $this->redirectToRoute('todo');
 
     }
-    #[Route('/todo/update/{name}/{content}', name: 'todo.update')]
+    #[Route('/update/{name}/{content}', name: 'todo.update')]
     public function updateTodo(Request $request, $name, $content): RedirectResponse {
         $session = $request->getSession();
         //vérifier si j'ai mon tableau de todo dans la session
@@ -86,7 +91,7 @@ class TodoController extends AbstractController
         return $this->redirectToRoute('todo');
 
     }
-    #[Route('/todo/delete/{name}', name: 'todo.delete')]
+    #[Route('/delete/{name}', name: 'todo.delete')]
     public function deleteTodo(Request $request, $name): RedirectResponse {
         $session = $request->getSession();
         //vérifier si j'ai mon tableau de todo dans la session
@@ -113,7 +118,7 @@ class TodoController extends AbstractController
         }
         return $this->redirectToRoute('todo');
     }
-    #[Route('/todo/reset', name: 'todo.reset')]
+    #[Route('/reset', name: 'todo.reset')]
     public function resetTodo(Request $request): RedirectResponse {
         $session = $request->getSession();
         $session->remove(name: 'todos');
