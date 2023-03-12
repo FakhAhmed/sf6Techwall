@@ -23,10 +23,21 @@ class FirstController extends AbstractController
     #[Route('/sayHello/{name}/{firstname}', name: 'say.hello')]
     public function sayHello(Request $request1, $name, $firstname): Response
     {
-        dd($request1);
+        //dd($request1);
         return $this->render('first/hello.html.twig', [
             'nom' => $name,
             'prenom' => $firstname
         ]);
     }
+
+    #[Route(
+        'multi/{entier1}/{entier2<\d+>}',
+        name:'multiplication',
+        requirements: ['entier1'=>'\d+']
+    )]
+    public function multiplication($entier1, $entier2){
+        $resultat = $entier1 * $entier2;
+        return new Response("<h1>$resultat</h1>");
+    }
+
 }
