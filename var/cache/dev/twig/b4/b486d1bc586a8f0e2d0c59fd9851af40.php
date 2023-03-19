@@ -51,11 +51,15 @@ class __TwigTemplate_c369b740f5c7157e887a6e2f7b54519c extends Template
 </head>
 <body>
 <div>
-    <h1>Hello ";
+    <p>Aujourd'hui on est le : ";
         // line 12
-        echo twig_escape_filter($this->env, (isset($context["nom"]) || array_key_exists("nom", $context) ? $context["nom"] : (function () { throw new RuntimeError('Variable "nom" does not exist.', 12, $this->source); })()), "html", null, true);
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "d/m/Y"), "html", null, true);
+        echo "</p>
+    <h1>Hello ";
+        // line 13
+        echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, (isset($context["nom"]) || array_key_exists("nom", $context) ? $context["nom"] : (function () { throw new RuntimeError('Variable "nom" does not exist.', 13, $this->source); })())), "html", null, true);
         echo " ";
-        echo twig_escape_filter($this->env, (isset($context["prenom"]) || array_key_exists("prenom", $context) ? $context["prenom"] : (function () { throw new RuntimeError('Variable "prenom" does not exist.', 12, $this->source); })()), "html", null, true);
+        echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, (isset($context["prenom"]) || array_key_exists("prenom", $context) ? $context["prenom"] : (function () { throw new RuntimeError('Variable "prenom" does not exist.', 13, $this->source); })())), "html", null, true);
         echo "</h1>
 </div>
 </body>
@@ -80,7 +84,7 @@ class __TwigTemplate_c369b740f5c7157e887a6e2f7b54519c extends Template
 
     public function getDebugInfo()
     {
-        return array (  56 => 12,  43 => 1,);
+        return array (  60 => 13,  56 => 12,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -96,7 +100,8 @@ class __TwigTemplate_c369b740f5c7157e887a6e2f7b54519c extends Template
 </head>
 <body>
 <div>
-    <h1>Hello {{ nom }} {{ prenom }}</h1>
+    <p>Aujourd'hui on est le : {{ \"now\" | date(\"d/m/Y\")}}</p>
+    <h1>Hello {{ nom | capitalize }} {{ prenom | capitalize }}</h1>
 </div>
 </body>
 </html>", "first/hello.html.twig", "C:\\xampp\\htdocs\\sf6Techwall\\templates\\first\\hello.html.twig");
