@@ -38,10 +38,13 @@ return [
                 .')'
                 .'|/sayHello/([^/]++)/([^/]++)(*:196)'
                 .'|/multi/(\\d+)/(\\d+)(*:222)'
-                .'|/todo/(?'
-                    .'|add(?:/([^/]++)(?:/([^/]++))?)?(*:270)'
-                    .'|update/([^/]++)/([^/]++)(*:302)'
-                    .'|delete/([^/]++)(*:325)'
+                .'|/t(?'
+                    .'|ab(?:/(\\d+))?(*:248)'
+                    .'|odo/(?'
+                        .'|add(?:/([^/]++)(?:/([^/]++))?)?(*:294)'
+                        .'|update/([^/]++)/([^/]++)(*:326)'
+                        .'|delete/([^/]++)(*:349)'
+                    .')'
                 .')'
             .')/?$}sDu',
     ],
@@ -55,9 +58,10 @@ return [
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         196 => [[['_route' => 'say.hello', '_controller' => 'App\\Controller\\FirstController::sayHello'], ['name', 'firstname'], null, null, false, true, null]],
         222 => [[['_route' => 'multiplication', '_controller' => 'App\\Controller\\FirstController::multiplication'], ['entier1', 'entier2'], null, null, false, true, null]],
-        270 => [[['_route' => 'todo.add', 'content' => 'sf6', 'name' => 'samedi', '_controller' => 'App\\Controller\\TodoController::addTodo'], ['name', 'content'], null, null, false, true, null]],
-        302 => [[['_route' => 'todo.update', '_controller' => 'App\\Controller\\TodoController::updateTodo'], ['name', 'content'], null, null, false, true, null]],
-        325 => [
+        248 => [[['_route' => 'tab', 'nb' => '5', '_controller' => 'App\\Controller\\TabController::index'], ['nb'], null, null, false, true, null]],
+        294 => [[['_route' => 'todo.add', 'content' => 'sf6', 'name' => 'samedi', '_controller' => 'App\\Controller\\TodoController::addTodo'], ['name', 'content'], null, null, false, true, null]],
+        326 => [[['_route' => 'todo.update', '_controller' => 'App\\Controller\\TodoController::updateTodo'], ['name', 'content'], null, null, false, true, null]],
+        349 => [
             [['_route' => 'todo.delete', '_controller' => 'App\\Controller\\TodoController::deleteTodo'], ['name'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

@@ -20,6 +20,7 @@ return [
     'say.hello' => [['name', 'firstname'], ['_controller' => 'App\\Controller\\FirstController::sayHello'], [], [['variable', '/', '[^/]++', 'firstname', true], ['variable', '/', '[^/]++', 'name', true], ['text', '/sayHello']], [], [], []],
     'multiplication' => [['entier1', 'entier2'], ['_controller' => 'App\\Controller\\FirstController::multiplication'], ['entier2' => '\\d+', 'entier1' => '\\d+'], [['variable', '/', '\\d+', 'entier2', true], ['variable', '/', '\\d+', 'entier1', true], ['text', '/multi']], [], [], []],
     'session' => [[], ['_controller' => 'App\\Controller\\SessionController::index'], [], [['text', '/session']], [], [], []],
+    'tab' => [['nb'], ['nb' => '5', '_controller' => 'App\\Controller\\TabController::index'], ['nb' => '\\d+'], [['variable', '/', '\\d+', 'nb', true], ['text', '/tab']], [], [], []],
     'todo' => [[], ['_controller' => 'App\\Controller\\TodoController::index'], [], [['text', '/todo/']], [], [], []],
     'todo.add' => [['name', 'content'], ['content' => 'sf6', 'name' => 'samedi', '_controller' => 'App\\Controller\\TodoController::addTodo'], [], [['variable', '/', '[^/]++', 'content', true], ['variable', '/', '[^/]++', 'name', true], ['text', '/todo/add']], [], [], []],
     'todo.update' => [['name', 'content'], ['_controller' => 'App\\Controller\\TodoController::updateTodo'], [], [['variable', '/', '[^/]++', 'content', true], ['variable', '/', '[^/]++', 'name', true], ['text', '/todo/update']], [], [], []],

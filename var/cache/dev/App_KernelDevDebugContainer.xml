@@ -346,6 +346,13 @@
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\SessionController"/>
       </call>
     </service>
+    <service id="App\Controller\TabController" class="App\Controller\TabController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jIxfAsi.App\Controller\TabController"/>
+      </call>
+    </service>
     <service id="App\Controller\TodoController" class="App\Controller\TodoController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -5844,6 +5851,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SessionController" class="App\Controller\SessionController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SessionController" class="App\Controller\SessionController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SessionController" class="App\Controller\SessionController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TabController" class="App\Controller\TabController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TabController" class="App\Controller\TabController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\TabController" class="App\Controller\TabController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TodoController" class="App\Controller\TodoController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TodoController" class="App\Controller\TodoController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\TodoController" class="App\Controller\TodoController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6719,6 +6729,12 @@
     <service id=".service_locator.jIxfAsi.App\Controller\SessionController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\SessionController"/>
       <argument>App\Controller\SessionController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jIxfAsi" method="withContext"/>
+    </service>
+    <service id=".service_locator.jIxfAsi.App\Controller\TabController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\TabController"/>
+      <argument>App\Controller\TabController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jIxfAsi" method="withContext"/>
     </service>
